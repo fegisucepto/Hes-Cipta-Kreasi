@@ -1,0 +1,21 @@
+{
+   "exclude":[
+      "coverage",
+      "self-coverage",
+      "test/fixtures/coverage.js",
+      "test/build/*",
+      "test/src/*",
+      "test/nyc.js",
+      "test/process-args.js",
+      "test/fixtures/_generateCoverage.js",
+      "test/*",
+      "app/app.js",
+      "test-template/*",
+      "test-example/*"
+   ],
+   "check-coverage":"!isWindows",
+   "branches":100,
+   "functions":100,
+   "lines":100,
+   "statements":100
+}

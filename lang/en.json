@@ -1,0 +1,31 @@
+{
+    "validator": {
+        "string": "{{field}} doesn't match format",
+        "array": "{{field}} must be array",
+        "number": "{{field}} must be number",
+        "boolean": "{{field}} must be number",
+        "email": "{{field}} must be in email format",
+        "password": "{{field}} minimum length is 8",
+        "password_create": "{{ field }} minimal length is 8, there is a combination of uppercase, lowercase and numbers",
+        "not_empty": "{{ field }} cannot be empty",
+        "exist": "{{ field }} is exist",
+        "same_value": "{{ field }} must be same"
+    },
+    "field": {
+        "user": {
+            "name": "Name",
+            "firstname": "firstname",
+            "lastname": "lastname",
+            "email": "Email",
+            "password": "Password",
+            "password_confirm": "Konfirmasi Kata Sandi",
+            "role":"Role",
+            "sales_office":"Sales Office",
+            "storage_location": "Storage Location",
+            "sales_organization": "Sales Organization",
+            "is_active": "is_active",
+            "token": "token",
+            "code": "code"
+        }
+    }
+}

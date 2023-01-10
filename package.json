@@ -1,0 +1,109 @@
+{
+  "name": "express-api",
+  "version": "0.0.0",
+  "private": true,
+  "nodemonConfig": {
+    "exec": "npm run development",
+    "watch": [
+      "app/*",
+      "public/*",
+      "config/*"
+    ],
+    "ignore": [
+      "**/__tests__/**",
+      "*.test.js",
+      "*.spec.js"
+    ]
+  },
+  "scripts": {
+    "start": "npm run prod",
+    "build": "npm-run-all clean transpile",
+    "server": "node ./dist/bin/www",
+    "development": "npm-run-all build server",
+    "prod": "npm-run-all build server",
+    "transpile": "sucrase ./app -d ./dist --transforms imports --esModuleInterop",
+    "clean": "rimraf dist",
+    "dev": "nodemon",
+    "migrate": "npx sequelize-cli db:migrate",
+    "migrate:rollback": "npx sequelize-cli db:migrate:undo:all",
+    "seed": "npx sequelize-cli db:seed:all",
+    "test": "set NODE_ENV=test&& mocha --require @babel/register --sort './test/tests.js' --exit",
+    "test:file": "set NODE_ENV=test&& mocha --timeout 20000 --require @babel/register --sort --exit",
+    "test:report": "set NODE_ENV=test&& mocha --require @babel/register --sort './test/tests.js' --reporter mochawesome --reporter-options reportFilename=report --charts true --exit",
+    "test:coverage": "set NODE_ENV=test&& nyc --require @babel/register --reporter=lcov --reporter=text-summary --reporter=text --reporter=html mocha --sort 'test/tests.js' --exit",
+    "test:ci": "set NODE_ENV=test&& mocha --require @babel/register --sort './test/tests.js' --reporter mocha-junit-reporter --reporter-options mochaFile=junit.xml --exit",
+    "test:ci-jest": "./node_modules/.bin/jest ./jest/* --detectOpenHandles --forceExit --watchAll=false --reporters='jest-junit'",
+    "lint": "npx eslint ./app --quiet",
+    "lint:fix": "npx eslint ./app --fix --quiet -o lint-report.html -f html",
+    "docs": "jsdoc -c ./.jsdoc.conf.json -R ./readme.md"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      [
+        "@babel/transform-runtime"
+      ]
+    ]
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "csvdata": "^2.0.0",
+    "dayjs": "^1.11.6",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "exceljs": "^4.3.0",
+    "express": "~4.16.1",
+    "express-easy-zip": "^1.1.5",
+    "express-swagger-generator": "^1.1.17",
+    "express-validator": "^6.6.1",
+    "handlebars": "^4.7.7",
+    "i18n": "^0.13.2",
+    "jsondoc": "0.0.0-rc.2",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "nodemailer": "^6.7.8",
+    "nodemon": "^2.0.4",
+    "npm-run-all": "^4.1.5",
+    "puppeteer": "^19.0.0",
+    "read-excel-file": "^5.5.0",
+    "redis": "^3.1.2",
+    "regenerator-runtime": "^0.13.7",
+    "rimraf": "^3.0.2",
+    "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0",
+    "sequelize-paginate": "^1.1.6",
+    "socket.io": "^4.5.3",
+    "sucrase": "^3.20.0",
+    "winston": "^3.3.3",
+    "winston-mongodb": "^5.0.7",
+    "xlstream": "^2.5.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/node": "^7.10.5",
+    "@babel/plugin-transform-runtime": "^7.13.15",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/register": "^7.11.5",
+    "babel-node": "0.0.1-security",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "eslint": "^7.10.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.23.2",
+    "ink-docstrap": "^1.3.2",
+    "mocha": "^8.3.0",
+    "mocha-junit-reporter": "^2.0.0",
+    "mochawesome": "^6.1.1",
+    "nyc": "^15.1.0"
+  }
+}

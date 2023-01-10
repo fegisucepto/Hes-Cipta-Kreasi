@@ -1,0 +1,13 @@
+version: "3"
+services:
+    wicaksana-sicantik-api:
+        container_name: wicaksana-sicantik-api
+        hostname: "wicaksana-sicantik-api"
+        build: .
+        ports:
+            - 7000:3000
+        environment:
+            - TZ=Asia/Jakarta
+            - PORT=3000
+        volumes:
+            - ./uploads:/app/uploads

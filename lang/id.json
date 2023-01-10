@@ -1,0 +1,31 @@
+{
+    "validator": {
+        "string": "{{ field }} tidak sesuai format",
+        "array": "{{field}} harus dalam bentuk array",
+        "number": "{{ field }} harus dalam bentuk angka",
+        "boolean": "{{ field }} harus dalam bentuk boolean",
+        "email": "{{ field }} harus dalam format email",
+        "password": "{{ field }} panjang minimal 8 karakter",
+        "password_create": "{{ field }} minimal 8 karakter, ada kombinasi huruf besar, huruf kecil dan angka",
+        "not_empty": "{{ field }} tidak boleh kosong",
+        "exist": "{{ field }} sudah ada",
+        "same_value": "{{ field }} harus sama"
+    },
+    "field": {
+        "user": {
+            "name": "Nama",
+            "firstname": "firstname",
+            "lastname": "lastname",
+            "email": "Email",
+            "password": "Kata Sandi",
+            "password_confirm": "Konfirmasi Kata Sandi",
+            "role":"Role",
+            "sales_office":"Sales Office",
+            "storage_location": "Storage Location",
+            "sales_organization": "Sales Organization",
+            "is_active": "is_active",
+            "token": "token",
+            "code": "code"
+        }
+    }
+}

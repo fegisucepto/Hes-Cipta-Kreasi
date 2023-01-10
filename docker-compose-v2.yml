@@ -1,0 +1,13 @@
+version: "3"
+services:
+    mt-tracker-backend-v2:
+        container_name: mt-tracker-backend-v2
+        hostname: "mt-tracker-backend-v2"
+        build: .
+        ports:
+            - 7002:3000
+        environment:
+            - TZ=Asia/Jakarta
+            - PORT=3000
+        volumes:
+            - ./uploads:/app/uploads
